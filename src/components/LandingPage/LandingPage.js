@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import { Link } from "react-router-dom";
 import './LandingPage.scss';
 import ShinpoBg from '../../assets/images/holo-bg.jpg';
@@ -34,6 +35,20 @@ const popularExp = {
 const categoryData = ["Basketball", "American Football", "Soccer", "Tennis", "Swimming", "Baseball", "Volleyball", "Table Tennis", "Badminton", "Surfing", "Golf", "Track", "Sailing", "e-Sports"]
 
 const LandingPage = ({data = categoryData, courts = popularCourts.items, exp = popularExp.items}) => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    getItems();
+  }, [])
+  
+  const getItems = () => {
+    axios.get('/items')
+      .then((res) => {
+        setItems(res.data);
+        console.log(res.data);
+      })
+  }
+
   return (
     <main className="home-container">
       <div className="home-wrapper">
@@ -75,17 +90,11 @@ const LandingPage = ({data = categoryData, courts = popularCourts.items, exp = p
           <h2>Currently popular courts in Japan</h2>
           <div className="popular-items">
             {
-              courts.map((court, index) => (
+              items.slice(0,6).map((court, index) => (
                 <div className="item">
-                  <img src={require("../../assets/images/" + court.image)} className="item-image" alt=""/>
+                  <img src={court.image} className="item-image" alt=""/>
                   <div className="item-heading">
-                    <img src={starIcon}/>
-                    <div className="item-rating">
-                      <p>{court.rating}</p>
-                      <p>(12)</p>
-                    </div>
-                    <p>・</p>
-                    <p>{court.category}</p>
+                    <p>{court.title}</p>
                   </div>
                   <p className="item-location">{court.location}</p>
                   <div className="item-price">

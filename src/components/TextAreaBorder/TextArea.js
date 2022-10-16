@@ -7,10 +7,11 @@ const TextArea = (props) => {
       <label>{props.label}</label>
       <textarea
         type="text"
+        name={props.name}
         id={props.id}
         placeholder={props.placeholder}
         value={props.value}
-        onChange={(e) => props.setDesc(e.target.value)}
+        onChange={(e) => props.handleChange(e)}
       />
     </div>
   )

@@ -1,11 +1,8 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from 'react-router';
 import { Dropdown } from '../Dropdown/Dropdown';
 import './CreateGroup.scss';
 import { GroupForm } from './GroupForm/GroupForm';
-
-
 const CreateGroup = () => {
   return (
     <section className="create-group-container">

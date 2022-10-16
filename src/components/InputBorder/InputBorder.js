@@ -7,10 +7,11 @@ const InputBorder = (props) => {
       <label>{props.label}</label>
       <input 
         type="text"
+        name={props.name}
         id={props.id}
         placeholder={props.placeholder}
-        value={props.value}
-        onChange={(e) => props.setTitle(e.target.value)}
+        defaultValue={props.value}
+        onChange={(e) => props.handleChange(e)}
       />
     </div>
   )

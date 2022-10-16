@@ -13,7 +13,7 @@ const Group = ({group}) => {
     <article className="group-item">
       <div className="group-item-contents">
         <div className="item-image">
-          <img src={itemImage}/>
+          <img src={group.image}/>
         </div>
         <div className="item-text">
           <div className="item-top">
