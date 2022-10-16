@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import './LandingPage.scss';
 import ShinpoBg from '../../assets/images/holo-bg.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,29 +38,31 @@ const LandingPage = ({data = categoryData, courts = popularCourts.items, exp = p
     <main className="home-container">
       <div className="home-wrapper">
         <section className="home-banner">
-          <div className="banner-side">
-            <div className="center-text">
-              <p>Browse Experiences</p>
-              <h2>Browse unique experiences hosted by our partners and users</h2>
+          <Link to="/experiences">
+            <div className="banner-side left">
+              <div className="center-text">
+                <p>Browse Experiences</p>
+                <h2>Browse unique experiences hosted by our partners and users</h2>
+              </div>
             </div>
-          </div>
-          <div className="banner-center">
-            <div className="center-text">
-              <p>Browse Spaces</p>
-              <h2>Browse our collection of sports spaces <br/>hosted by our partners</h2>
+          </Link>
+          <Link to="/spaces">
+            <div className="banner-center">
+              <div className="center-text">
+                <p>Browse Spaces</p>
+                <h2>Browse our collection of sports spaces <br/>hosted by our partners</h2>
+              </div>
             </div>
-
-           
-          </div>
-          <div className="banner-side">
-            <div className="center-text">
-              <p>Browse Groups</p>
-              <h2>Browse groups formed by users or partners and play together</h2>
+          </Link>
+          <Link to="/groups">
+            <div className="banner-side right">
+              <div className="center-text">
+                <p>Browse Groups</p>
+                <h2>Browse groups formed by users or partners and play together</h2>
+              </div>
             </div>
-
-
-            
-          </div>
+          </Link>
+          
         </section>
         <section className="home-categories">
           {
@@ -92,12 +95,6 @@ const LandingPage = ({data = categoryData, courts = popularCourts.items, exp = p
                   
                 </div>
               ))
-              // <div className="item"></div>
-            // <div className="item"></div>
-            // <div className="item"></div>
-            // <div className="item"></div>
-            // <div className="item"></div>
-            // <div className="item"></div>
             }
           </div>
         </section>

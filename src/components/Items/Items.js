@@ -33,7 +33,6 @@ function Items() {
     } else{
       setFilteredResults(items)
     }
-    
   }
 
   useEffect(() => {
@@ -44,8 +43,6 @@ function Items() {
       <div className="spaces-container">
         <ItemList items={items}/>
       </div>
-
-
     )
 }
 

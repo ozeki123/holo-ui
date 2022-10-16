@@ -19,6 +19,9 @@
       justify-content: space-between;
       font-family: "Aileron";
       color: white;
+      a{
+        color: white;
+      }
       .center-text{
         width: 80%;
         position: absolute;
@@ -37,16 +40,32 @@
           font-size: 14px;
         }
       }
-      .banner-side:first-child{
+      .left{
+        height: 100%;
+        width: 100%;
         background-image: url("../../assets/images/experiences-banner.jpg");
         background-size: cover;
         background-position: center;
       }
-      .banner-side:last-child{
+      .right{
+        height: 100%;
+        width: 100%;
         background-image: url("../../assets/images/groups-banner.jpg");
         background-size: cover;
         background-position: 0 40%;
         background-repeat: no-repeat;
+      }
+      .banner-side:first-child{
+        // background-image: url("../../assets/images/experiences-banner.jpg");
+        // background-size: cover;
+        // background-position: center;
+        
+      }
+      .banner-side:last-child{
+        // background-image: url("../../assets/images/groups-banner.jpg");
+        // background-size: cover;
+        // background-position: 0 40%;
+        // background-repeat: no-repeat;
       }
       // .banner-side .center-text{
       //   width: 60%;
@@ -56,7 +75,8 @@
       // }
       .banner-center{
         // width: 41%;
-
+        height: 100%;
+        width: 100%;
         border-radius: 25px;
         background-image: url("../../assets/images/courts-banner.jpg");
         background-size: cover;
