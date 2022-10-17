@@ -103,7 +103,7 @@ const ItemList = ({items}) => {
               
           </section>
         </main>
-      </div>
+    </div>
   )
 }
 

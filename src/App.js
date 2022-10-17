@@ -40,6 +40,7 @@ import PaymentForm from './components/PaymentForm/PaymentForm';
 import { Experiences } from './components/Experiences/Experiences';
 import JoinGroup from './components/GroupFinder/JoinGroup/JoinGroup';
 import GroupPage from './components/GroupFinder/GroupPage/GroupPage';
+import ExperiencePage from './pages/ExperiencePage/ExperiencePage';
 
 export const NavLayout = () => {
   return(
@@ -139,7 +140,7 @@ function App() {
                 <Route element={<PageLayout/>}>
                   <Route path="/spaces/:id" element={<Page/>}></Route>
                   <Route path='/partner' element={<PartnerForm/>}></Route>
-                  
+                  <Route path="/experiences/:id" element={<ExperiencePage/>}></Route>
                   
                   <Route path='/groups/create' element={<CreateGroup/>}></Route>
                   <Route path="/groups/:id/join" element={<JoinGroup/>}></Route>
