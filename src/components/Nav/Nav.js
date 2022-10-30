@@ -1,18 +1,16 @@
-import React from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import React, { useContext } from "react";
+import { NavLink } from 'react-router-dom';
+import { authContext } from '../../contexts/Contexts';
 import './Nav.scss'
-import MenuIcon from '../MenuIcon/MenuIcon';
-import SectionLine from '../SectionLine/SectionLine';
 import userIcon from "../../assets/icons/profile-icon.png";
-import homeIcon from "../../assets/icons/home-svgrepo-com.svg";
 import { ReactComponent as Spaces} from "../../assets/icons/basketball-hoop.svg";
-import sportIcon from "../../assets/icons/sport-faculty-svgrepo-com.svg";
 import { ReactComponent as GroupIcon} from "../../assets/icons/group-svgrepo-com (1).svg";
 import { ReactComponent as LogoIcon} from "../../assets/icons/holo_logo.svg";
 import { ReactComponent as Home } from "../../assets/icons/home-svgrepo-com.svg";
 import { ReactComponent as Exp} from "../../assets/icons/2305629_gallery_image_mountain_photo_pic_icon.svg";
 
 const Nav = () => {
+  const {isLogged, setIsLogged} = useContext(authContext)
   return (
     <div className="navbar">
       <div className="navbar-container">
@@ -57,7 +55,23 @@ const Nav = () => {
               </li>
             </ul>
             <div className="nav-user">
-              <p>Guest</p>
+              { 
+                isLogged ?
+                <p>Guest</p>
+                :
+                <div className="nav-register">
+                  <NavLink to="/login">
+                    <p>Log in</p>
+                  </NavLink>
+                  
+                  <p>/</p>
+                  <NavLink to="/register">
+                    <p>Sign up</p>
+                  </NavLink>
+                  
+                </div>
+                
+              }
               <img src={userIcon}/>
             </div>
           </nav>

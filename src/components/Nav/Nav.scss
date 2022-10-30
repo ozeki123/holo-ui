@@ -29,7 +29,7 @@
       align-items: center;
       font-family: 'Helvetica', sans-serif;
       .nav-header{
-        width: 10%;
+        width: 15%;
         display: flex;
         align-items: center;
         svg{
@@ -47,12 +47,25 @@
         padding-left: 0.5vw;
       }
 
-      
+      a{
+        text-decoration: none;
+        color: #9999b9;
+        transition: 0.5s ease;
+        
+        &:hover{
+          color: var(--color-main);
+        }
+      }
 
       .navbar-links{
         width: 31%;
+        min-width: 400px;
         display: flex;
         justify-content: space-between;
+
+        @media only screen and (max-width: 1024px) {
+          min-width: 350px;
+        }
         
         li{
           display: flex;
@@ -70,15 +83,7 @@
           &:hover{
             color: var(--color-main);
           }
-          a{
-            text-decoration: none;
-            color: #9999b9;
-            transition: 0.5s ease;
-            
-            &:hover{
-              color: var(--color-main);
-            }
-          }
+          
           .home-icon{
             width: 20px;
             height: 14px;
@@ -130,16 +135,23 @@
         }
       }
       .nav-user{
-        width: 10%;
+        width: 15%;
         display: flex;
         align-items: center;
         justify-content: flex-end;
         position: relative;
+        .nav-register{
+          display: flex;
+        }
         p{
           font-size: 0.9rem;
-          font-weight: 500;
-          color: #4e4e68;
+          font-weight: 400;
+          color: #9999b9;
           padding-right: 0.8vw;
+          transition: 0.5s ease;
+          &:hover{
+            color: var(--color-main);
+          }
         }
       }
       img{

@@ -25,7 +25,6 @@ import DatePicker from './components/DatePicker/Datepicker';
 import GroupFinder from './components/GroupFinder/GroupFinder';
 import CreateGroup from './components/CreateGroup/CreateGroup';
 import FileUpload from './components/FileUpload/FileUpload';
-import Map from './components/Map/Map';
 import Carousel from './components/Carousel/Carousel';
 import Featured from './components/Featured/Featured';
 import Landing from './components/Landing/Landing';
@@ -132,6 +131,7 @@ function App() {
         <div className="App">
               <Routes>
                 <Route element={<NavLayout/>}>
+                  <Route path="/" element={<LandingPage/>}></Route>
                   <Route path="/home" element={<LandingPage/>}></Route>
                   <Route path="/spaces" element={<Items/>}></Route>
                   <Route path="/experiences" element={<Experiences/>}></Route>
@@ -168,9 +168,6 @@ function App() {
                   <Route path="/payment" element={<PaymentForm/>}></Route>
                   <Route path="/confirm" element={<Confirm/>}></Route>
                   <Route path='/datepicker' element={<DatePicker/>}></Route>
-                  
-                  
-                  <Route path='/map' element={<Map/>}></Route>
                   
                   <Route path='/carousel' element={<Carousel/>}></Route>
                   <Route path='/featured' element={<Featured/>}></Route>

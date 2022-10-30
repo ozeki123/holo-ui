@@ -1,50 +1,65 @@
 import React, { useEffect, useState } from "react";
+import { ReactComponent as BasketballIcon } from "../../assets/icons/sports-basketball.svg";
+import { ReactComponent as SwimmingIcon } from "../../assets/icons/sports-swimming.svg";
+import { ReactComponent as TennisIcon } from "../../assets/icons/sports-tennis.svg";
+import { ReactComponent as BilliardIcon } from "../../assets/icons/sports-billiards.svg";
+import { ReactComponent as GolfIcon } from "../../assets/icons/sports-golf.svg";
+import { ReactComponent as FootballIcon } from "../../assets/icons/sports-soccer.svg";
+import { ReactComponent as BaseballIcon } from "../../assets/icons/sports-baseball.svg";
+import { ReactComponent as VolleyballIcon } from "../../assets/icons/sports-volleyball.svg";
+import { ReactComponent as GymIcon } from "../../assets/icons/sports-bodybuilding.svg";
+import { ReactComponent as BadmintonIcon } from "../../assets/icons/sports-badminton.svg";
+import { ReactComponent as TableTennisIcon } from "../../assets/icons/sports-table-tennis.svg";
+import { ReactComponent as DartsIcon } from "../../assets/icons/sports-darts.svg";
+import { ReactComponent as ArcheryIcon } from "../../assets/icons/sports-archery.svg";
+import { ReactComponent as SkatingIcon } from "../../assets/icons/sports-skating.svg";
+import { ReactComponent as AllIcon } from "../../assets/icons/8725478_apps_icon.svg";
+import { ReactComponent as ComputerIcon } from "../../assets/icons/3643757_computer_desktop_monitor_pc_personal_icon.svg";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import './LandingPage.scss';
-import ShinpoBg from '../../assets/images/holo-bg.jpg';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import Carousel from '../Carousel/Carousel';
-import Section from '../Section/Section';
-import SectionLine from '../SectionLine/SectionLine';
-import News from '../News/News';
-import starIcon from "../../assets/icons/icons8-star-48.png";
-
-const popularCourts = {
-  "items":[
-    {"location": "Nagano, Karuizawa", "category":"Tennis", "image": "pop-court-1.jpg", "id": 1, "rating": 4.9, "title": "市ヶ谷駅から徒歩5分! 広いサッカーフィールド", "price": "¥2000"},
-    {"location": "Chiba, Onjuku", "category":"Basketball", "image": "pop-court-2.jpg", "id": 2, "rating": 4.6, "title": "市ヶ谷駅から徒歩5分! アウトドアバスケとボールコート", "price": "¥2000"},
-    {"location": "Okinawa, Onna", "category":"Tennis, Basketball", "image": "pop-court-3.jpg", "id": 3, "rating": 4.8, "title": "市ヶ谷駅から徒歩5分! アウトドアバスケとボールコート", "price": "¥2000"},
-    {"location": "Okinawa, Naha", "category":"Swimming", "image": "pop-court-4.jpg", "id": 4, "rating": 4.8, "title": "市ヶ谷駅から徒歩5分! アウトドアバスケとボールコート", "price": "¥2000"},
-    {"location": "Saitama, Tokorozawa", "category":"Track, Soccer, Rugby", "image": "pop-court-5.jpg", "rating": 4.9, "id": 4, "title": "市ヶ谷駅から徒歩5分! アウトドアバスケとボールコート", "price": "¥2000"},
-    {"location": "Tokyo, Futako Tamagawa", "category":"Soccer, Track", "image": "pop-court-6.jpg", "id": 6, "rating": 4.9, "title": "市ヶ谷駅から徒歩5分! アウトドアバスケとボールコート", "price": "¥2000"},
-  ]
-}
-const popularExp = {
-  "items":[
-    {"location": "Nagano, Karuizawa", "category":"Tennis", "image": "pop-exp-1.jpg", "id": 1, "rating": 4.9, "title": "市ヶ谷駅から徒歩5分! 広いサッカーフィールド", "price": "¥2000"},
-    {"location": "Chiba, Onjuku", "category":"Basketball", "image": "pop-exp-2.jpg", "id": 2, "rating": 4.6, "title": "市ヶ谷駅から徒歩5分! アウトドアバスケとボールコート", "price": "¥2000"},
-    {"location": "Okinawa, Onna", "category":"Tennis, Basketball", "image": "pop-exp-3.jpg", "id": 3, "rating": 4.8, "title": "市ヶ谷駅から徒歩5分! アウトドアバスケとボールコート", "price": "¥2000"},
-    {"location": "Okinawa, Naha", "category":"Swimming", "image": "pop-exp-4.jpg", "id": 4, "rating": 4.8, "title": "市ヶ谷駅から徒歩5分! アウトドアバスケとボールコート", "price": "¥2000"},
-    {"location": "Saitama, Tokorozawa", "category":"Track, Soccer, Rugby", "image": "pop-exp-5.jpg", "rating": 4.9, "id": 4, "title": "市ヶ谷駅から徒歩5分! アウトドアバスケとボールコート", "price": "¥2000"},
-    {"location": "Tokyo, Futako Tamagawa", "category":"Soccer, Track", "image": "pop-exp-6.jpg", "id": 6, "rating": 4.9, "title": "市ヶ谷駅から徒歩5分! アウトドアバスケとボールコート", "price": "¥2000"},
-  ]
-}
-
+const categoryArr = [
+  {"title":"All sports", "image": AllIcon}, 
+  {"title":"Basketball", "image": BasketballIcon}, 
+  {"title":"Billiards", "image": BilliardIcon}, 
+  {"title":"Tennis", "image": TennisIcon},
+  {"title":"Swimming", "image": SwimmingIcon},
+  {"title":"Golf", "image": GolfIcon}, 
+  {"title":"Soccer", "image": FootballIcon},
+  {"title":"Baseball", "image": BaseballIcon},
+  {"title":"Volleyball", "image": VolleyballIcon},
+  {"title":"Bodybuilding", "image": GymIcon},
+  {"title":"Badminton", "image": BadmintonIcon},
+  {"title":"Table Tennis", "image": TableTennisIcon},
+  {"title":"Darts", "image": DartsIcon},
+  {"title":"Archery", "image": ArcheryIcon},
+  {"title":"Ice Skating", "image": SkatingIcon},
+  {"title":"E Sports", "image": ComputerIcon},
+]
 const categoryData = ["Basketball", "American Football", "Soccer", "Tennis", "Swimming", "Baseball", "Volleyball", "Table Tennis", "Badminton", "Surfing", "Golf", "Track", "Sailing", "e-Sports"]
 
-const LandingPage = ({data = categoryData, courts = popularCourts.items, exp = popularExp.items}) => {
+const LandingPage = ({data = categoryData}) => {
   const [items, setItems] = useState([]);
+  const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     getItems();
+    getExperiences();
   }, [])
   
   const getItems = () => {
     axios.get('/items')
       .then((res) => {
         setItems(res.data);
+        console.log(res.data);
+      })
+  }
+
+  const getExperiences = () => {
+    axios.get('/experiences')
+      .then((res) => {
+        setExperiences(res.data);
         console.log(res.data);
       })
   }
@@ -57,7 +72,7 @@ const LandingPage = ({data = categoryData, courts = popularCourts.items, exp = p
             <div className="banner-side left">
               <div className="center-text">
                 <p>Browse Experiences</p>
-                <h2>Browse unique experiences hosted by our partners and users</h2>
+                <h2>Browse unique experiences hosted by our users</h2>
               </div>
             </div>
           </Link>
@@ -65,7 +80,7 @@ const LandingPage = ({data = categoryData, courts = popularCourts.items, exp = p
             <div className="banner-center">
               <div className="center-text">
                 <p>Browse Spaces</p>
-                <h2>Browse our collection of sports spaces <br/>hosted by our partners</h2>
+                <h2>Browse our collection of sports spaces <br/>hosted by our users</h2>
               </div>
             </div>
           </Link>
@@ -73,36 +88,43 @@ const LandingPage = ({data = categoryData, courts = popularCourts.items, exp = p
             <div className="banner-side right">
               <div className="center-text">
                 <p>Browse Groups</p>
-                <h2>Browse groups formed by users or partners and play together</h2>
+                <h2>Browse groups created by other users</h2>
               </div>
             </div>
           </Link>
           
         </section>
-        <section className="home-categories">
+        <ul className="items-category">
           {
-            data.map((data, index) => (
-              <div className="category">{data}</div>
+            categoryArr.map((category, index) => (
+              <li className="category-item">
+                <button className="item-content">
+                  {<category.image/>}
+                  <p>{category.title}</p>
+                </button>
+              </li>
             ))
           }
-        </section>
+        </ul>
         <section className="popular-section">
           <h2>Currently popular courts in Japan</h2>
           <div className="popular-items">
             {
               items.slice(0,6).map((court, index) => (
-                <div className="item">
-                  <img src={court.image} className="item-image" alt=""/>
-                  <div className="item-heading">
-                    <p>{court.title}</p>
+                <Link to={`/spaces/${court._id}`}>
+                  <div className="item">
+                    <img src={court.image} className="item-image" alt=""/>
+                    <div className="item-heading">
+                      <p>{court.title}</p>
+                    </div>
+                    <p className="item-location">{court.location}</p>
+                    <div className="item-price">
+                      <p className="price-bold">{`From ${court.price} `}</p>
+                      <p>{" / hour"}</p>
+                    </div>
                   </div>
-                  <p className="item-location">{court.location}</p>
-                  <div className="item-price">
-                    <p className="price-bold">{`From ${court.price} `}</p>
-                    <p>{" / hour"}</p>
-                  </div>
-                  
-                </div>
+                </Link>
+                
               ))
             }
           </div>
@@ -111,17 +133,12 @@ const LandingPage = ({data = categoryData, courts = popularCourts.items, exp = p
           <h2>Currently popular experiences in Japan</h2>
           <div className="popular-items">
           {
-            exp.map((exp, index) => (
-              <div className="item">
-                <img src={require("../../assets/images/" + exp.image)} className="item-image" alt=""/>
-                <div className="item-heading">
-                    <img src={starIcon}/>
-                    <div className="item-rating">
-                      <p>{exp.rating}</p>
-                      <p>(12)</p>
-                    </div>
-                    <p>・</p>
-                    <p>{exp.category}</p>
+            experiences.slice(0,6).map((exp, index) => (
+              <Link to={`/experiences/${exp._id}`} state={{experience: exp}}>
+                <div className="item">
+                  <img src={exp.image} className="item-image" alt=""/>
+                  <div className="item-heading">
+                    <p>{exp.title}</p>
                   </div>
                   <p className="item-location">{exp.location}</p>
                   <div className="item-price">
@@ -129,6 +146,8 @@ const LandingPage = ({data = categoryData, courts = popularCourts.items, exp = p
                     <p>{" / hour"}</p>
                   </div>
                 </div>
+              </Link>
+              
             ))
           }
           </div>

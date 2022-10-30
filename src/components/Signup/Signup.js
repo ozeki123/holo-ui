@@ -242,7 +242,7 @@ function Signup () {
           <p>
             Already registered?
             <span>
-              <Link to="/signin">Sign in</Link>
+              <Link to="/login">Sign in</Link>
             </span>
           </p>
         </form>

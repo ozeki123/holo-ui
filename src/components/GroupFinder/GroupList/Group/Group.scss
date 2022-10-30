@@ -71,19 +71,18 @@
     }
     
     .group-info{
-      padding-top: 1.9vh;
+      padding-top: 0.9vw;
       padding-left: 0.3vw;
       h3{
-        font-size: 0.98em;
-
+        font-size: clamp(0.7rem, 0.6354rem + 0.2872vw, 0.98rem);
         color: #48486d;
         letter-spacing: -0.3px;
         font-weight: 500;
       }
       p{
-        font-size: 0.81em;
-        padding-top: 0.7vh;
-        line-height: 2.3vh;
+        font-size: clamp(0.6rem, 0.5423rem + 0.2564vw, 0.85rem);
+        padding-top: 0.3vw;
+        line-height: 1.2vw;
         color: rgb(123, 126, 158);
         font-weight: 400;
         letter-spacing: -0.1px;
@@ -98,8 +97,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 1.8vh;
+      padding-top: 0.9vw;
       color: #9f9fc5;
+      font-size: clamp(0.5rem, 0.4285rem + 0.3179vw, 0.81rem);
 
       .members:hover{
         color: #444CEF;
@@ -135,7 +135,7 @@
 
       .bottom-left{
         height: 100%;
-        width: 46%;
+        width: 50%;
         display: flex;
         justify-content: space-between;
         font-weight: 400;
@@ -155,7 +155,6 @@
           }
           p{
             padding-left: 0.3vw;
-            font-size: 0.81em;
             letter-spacing: -0.4px;
           }
           .members-icon, .hearts-icon{
@@ -178,7 +177,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 0.84em;
         font-weight: 400;
         letter-spacing: -0.3px;
 

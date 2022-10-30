@@ -1,6 +1,11 @@
 // @font-face {
 //   font-family: "Gilroy-bold";
 //   src: url("./fonts/Gilroy-ExtraBold.otf")
+
+html, body{
+  height: 100%;
+  margin: 0;
+}
 // }
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 @import '../src/styles/global.scss';

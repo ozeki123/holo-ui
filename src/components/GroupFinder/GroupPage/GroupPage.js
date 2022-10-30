@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./GroupPage.scss";
 import GroupImage from "../../../assets/images/05_Marathon_Group.jpg";
@@ -15,6 +15,11 @@ const GroupPage = (props) => {
   const location = useLocation();
   const data = location.state.group;
   console.log(data);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
 
   return (
     <div className="group-page-container">
@@ -67,7 +72,7 @@ const GroupPage = (props) => {
                     <div className="event-heading">
                       <p>Tokyo, Mita</p>
                       <h3>Late night 5v5 pickup </h3>
-                      <p>Intermediate, Advanced</p>
+                      <p className="skill-level">All Skill Levels</p>
                     </div>
                     
                     <div className="event-info">
@@ -87,7 +92,7 @@ const GroupPage = (props) => {
                     <div className="event-heading">
                       <p>Tokyo, Mita</p>
                       <h3>Late night 5v5 pickup </h3>
-                      <p>Intermediate, Advanced</p>
+                      <p className="skill-level">All Skill Levels</p>
                     </div>
                     
                     <div className="event-info">

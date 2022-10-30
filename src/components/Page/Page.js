@@ -49,6 +49,7 @@ function Page(props) {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getItems();
   }, []);
 
@@ -90,14 +91,14 @@ function Page(props) {
         
         <section className="page-images">
           <div className="images-left">
-            <img src={require(`../../assets/images/${imgArr[0]}`)}/>
+            <img src={items.image}/>
           </div>
           <div className="images-right">
             <div className="right-top">
-              <img src={require(`../../assets/images/${imgArr[1]}`)}/>
+              <img src={items.image}/>
             </div>
             <div className="right-bottom">
-              <img src={require(`../../assets/images/${imgArr[2]}`)}/>
+              <img src={items.image}/>
             </div>
           </div>
         </section>
